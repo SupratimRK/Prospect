@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * This PHP Unzipper has taken from https://github.com/ndeet/unzipper
+ * Thanks to its Developers
+ */
+
+/**
  * The Unzipper extracts .zip or .rar archives and .gz files on webservers.
  * It's handy if you do not have shell access. E.g. if you want to upload a lot
  * of files (php framework or image collection) as an archive to save time.
@@ -206,7 +211,7 @@ class Unzipper
       return;
     }
     // Check if archive is readable.
-    if ($rar = RarArchive::open($archive)) {
+    if ($rar = 'RarArchive'::open($archive)) {
       // Check if destination is writable
       if (is_writeable($destination . '/')) {
         $entries = $rar->getEntries();
